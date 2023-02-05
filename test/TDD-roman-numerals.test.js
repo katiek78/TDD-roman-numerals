@@ -39,4 +39,16 @@ describe("decimalToRoman", () => {
     test('Returns Roman equivalent of a decimal number that has a Roman equivalent', () => {
         expect(decimalToRoman(10)).toEqual("X");
     });
+    test('Returns Roman equivalent of a decimal number that is a multiple of a number with a Roman equivalent', () => {
+        expect(decimalToRoman(20)).toEqual("XX");
+    });
+    test('Returns Roman equivalent of a decimal number that requires multiple Roman characters', () => {
+        expect(decimalToRoman(25)).toEqual("XXV");
+    });
+    test('Returns Roman equivalent of a decimal number that would require a shortcut like IV', () => {
+        expect(decimalToRoman(24)).toEqual("XXIV");
+        expect(decimalToRoman(59)).toEqual("LIX");
+        expect(decimalToRoman(1978)).toEqual("MCMLXXVIII");
+        expect(decimalToRoman(406)).toEqual("CDVI");
+    });    
 });
