@@ -1,5 +1,5 @@
 export const romanToDecimal = (roman => {
-    if (!roman) return null;
+    if (!roman || typeof roman !== 'string') return null;
 
     const romanToDecimalEquivalents = [
         ["I", 1],
@@ -42,4 +42,8 @@ export const romanToDecimal = (roman => {
         lastEquivalentIndex = thisEquivalentIndex;
     }
     return decimal;
+});
+
+export const decimalToRoman = (decimal => {
+    return null;
 });

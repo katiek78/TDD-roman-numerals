@@ -1,8 +1,11 @@
-import { romanToDecimal } from "../src/TDD-roman-numerals.js";
+import { romanToDecimal, decimalToRoman } from "../src/TDD-roman-numerals.js";
 
 describe("romanToDecimal", () => {
-    test('Returns null when empty', () => {
+    test('Returns null if input is empty', () => {
         expect(romanToDecimal("")).toEqual(null);
+    });
+    test('Returns null if input is not a string', () => {
+        expect(romanToDecimal(3)).toEqual(null);
     });
     test('Returns null when input contains non-Roman characters', () => {
         expect(romanToDecimal("MJS")).toEqual(null);
@@ -23,5 +26,11 @@ describe("romanToDecimal", () => {
         expect(romanToDecimal("IV")).toEqual(4);
         expect(romanToDecimal("MD")).toEqual(1500);
         expect(romanToDecimal("MCMLXXVIII")).toEqual(1978);
+    });
+});
+
+describe("decimalToRoman", () => {
+    test('Returns null when empty', () => {
+        expect(decimalToRoman()).toEqual(null);
     });
 });
