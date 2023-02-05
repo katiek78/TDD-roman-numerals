@@ -30,7 +30,13 @@ describe("romanToDecimal", () => {
 });
 
 describe("decimalToRoman", () => {
-    test('Returns null when empty', () => {
+    test('Returns null if input is empty', () => {
         expect(decimalToRoman()).toEqual(null);
+    });
+    test('Returns null if input is not a number', () => {
+        expect(decimalToRoman("foo")).toEqual(null);
+    });
+    test('Returns Roman equivalent of a decimal number that has a Roman equivalent', () => {
+        expect(decimalToRoman(10)).toEqual("X");
     });
 });

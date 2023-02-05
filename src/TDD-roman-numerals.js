@@ -45,5 +45,20 @@ export const romanToDecimal = (roman => {
 });
 
 export const decimalToRoman = (decimal => {
+    if (!decimal || isNaN(decimal)) return null;
+ 
+    const romanToDecimalEquivalents = [
+        ["I", 1],
+        ["V", 5],
+        ["X", 10],
+        ["L", 50],
+        ["C", 100],
+        ["D", 500],
+        ["M", 1000]
+    ]
+
+    const decimals = romanToDecimalEquivalents.map(el => el[1]);
+    const thisEquivalentIndex = decimals.indexOf(decimal);    
+    if (thisEquivalentIndex > -1) return romanToDecimalEquivalents[thisEquivalentIndex][0]; 
     return null;
 });
