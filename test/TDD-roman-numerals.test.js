@@ -4,6 +4,12 @@ describe("romanToDecimal", () => {
     test('Returns null when empty', () => {
         expect(romanToDecimal("")).toEqual(null);
     });
+    test('Returns null when input contains non-Roman characters', () => {
+        expect(romanToDecimal("MJS")).toEqual(null);
+    });
+    test('Returns null when a lower character comes before a non-adjacent Roman character, e.g. XM', () => {
+        expect(romanToDecimal("XM")).toEqual(null);
+    });
     test('Returns decimal equivalent of a single Roman character', () => {
         expect(romanToDecimal("V")).toEqual(5);
     });
