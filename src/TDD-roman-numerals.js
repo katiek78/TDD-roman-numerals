@@ -15,7 +15,7 @@ export const romanToDecimal = (roman => {
 
     let decimal = 0, lastEquivalent = 0, lastEquivalentIndex = 0, thisEquivalent = 0;
 
-    for (const character of roman.split("")) {        
+    for (const character of roman.split("")) {
         //find the index of this character and return null if it is not found
         const thisEquivalentIndex = romanNumerals.indexOf(character);
         if (thisEquivalentIndex === -1) return null;
@@ -77,7 +77,7 @@ export const decimalToRoman = (decimal => {
                     //If it starts with 4, need to add next lower character + next higher
                     //If it starts with 9, need to add next-but-one lower + next higher
                     roman += (remaining.toString()[0] === '4' ? romanToDecimalEquivalents[i][0] : romanToDecimalEquivalents[i - 1][0]) + romanToDecimalEquivalents[i + 1][0];
-                    remaining -= (remaining.toString()[0] === '4' ? decimals[i] : decimals[i - 1]) * parseInt(remaining.toString()[0]);//subtract first digit * lower decimal if we have 4 we should be substracting 4, if we have 40 we subtract 40, if we have 49 we subtract 40                    
+                    remaining -= (remaining.toString()[0] === '4' ? decimals[i] : decimals[i - 1]) * parseInt(remaining.toString()[0]);
                     break;
                 } else {
                     nextDecimalIndex = i;
